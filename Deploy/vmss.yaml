@@ -1,0 +1,5 @@
+#cloud-config
+runcmd:
+  - apt update -y
+  - apt install docker.io jq -y
+  - docker run -d --restart unless-stopped -e ConnectionStrings__TodoDbConnection="REPLACE_ME" --name todo -p 80:80 huangyingting/todo
